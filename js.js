@@ -23,6 +23,38 @@ var app = new Vue({
 
             }
             this.after = temp.join('');
+        },
+        berespectful: function () {
+            var temp = this.before.split('');
+            for(var x = 0; x < temp.length; x++){
+                if(containsSpecialCharacters(temp[x]) == true){
+                    temp[x] = temp[x];
+                }
+                else {
+                    temp[x] = 'F';
+                }
+
+            }
+            this.after = temp.join('');
+        },
+        spongebobify: function () {
+            var temp = this.before.split('');
+            var even = true;
+            for(var x = 0; x < temp.length; x++){
+                if(containsSpecialCharacters(temp[x]) == true){
+                    temp[x] = temp[x];
+                }
+                else if (even == true) {
+                    temp[x] = temp[x].toLocaleUpperCase();
+                    even = false;
+                }
+                else if (even == false){
+                    temp[x] = temp[x].toLocaleLowerCase();
+                    even = true;
+                }
+
+            }
+            this.after = temp.join('');
         }
     }
 });
